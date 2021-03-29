@@ -37,15 +37,11 @@ pipeline {
         }
     }
         
-      stage('Run container') {
-        /* This builds the actual image */
-            
-		steps{
-		    script{
-        dockerImage.run("-p 8096:80 --rm --name pipecontainer")
-            }
-	    }
-    } 
+      stage('Deploy to Kubernetes'){
+        steps{
+            sh 'kubectl apply -f deployment.yml'
+       }
+    }
 
         	
 		
