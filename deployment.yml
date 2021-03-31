@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: starworld:latest
+        image: starworld
         ports:
         - containerPort: 8081
 ---
