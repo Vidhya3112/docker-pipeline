@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: starworld
+        image: us.gcr.io/rising-minutia-309213/starworld
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
