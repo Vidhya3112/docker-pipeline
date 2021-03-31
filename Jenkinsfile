@@ -38,7 +38,7 @@ pipeline {
         steps{
             script {
                 //sh 'docker image prune -f'
-                dockerImage.run("-p 8097:5000")
+                dockerImage.run("-p 8098:5000")
             }
         }
     }
