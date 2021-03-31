@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: vidhya3112/k8s-pipeline:latest
+        image: starworld:latest
         ports:
         - containerPort: 8081
 ---
