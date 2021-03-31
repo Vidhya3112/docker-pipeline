@@ -34,6 +34,14 @@ pipeline {
             sh 'docker push us.gcr.io/rising-minutia-309213/starworld'
         }
     }
+		stage('Run Docker Container') {
+        steps{
+            script {
+                //sh 'docker image prune -f'
+                dockerImage.run("-p 8096:80 --rm --name pipecontainer")
+            }
+        }
+    }
 	
       stage('Deploy to Kubernetes'){
         steps{
