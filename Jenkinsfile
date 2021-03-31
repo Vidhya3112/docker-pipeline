@@ -1,8 +1,8 @@
 pipeline {
 	
 	environment{
-		registry = "vidhya3112/devops"
-		registryCredentials = 'docker-hub-id'
+		registry = "vidhya3112/k8s-pipeline"
+		registryCredentials = 'docker-hub'
 		dockerImage = ''
 	}
 	
