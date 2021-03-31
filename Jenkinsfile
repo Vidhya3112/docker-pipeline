@@ -28,21 +28,23 @@ pipeline {
                 
         }
     }
+		
+	stage('Run container') {
+        /* This builds the actual image */
+            
+		steps{
+		    script{
+        dockerImage.run("-p 8096:80 --rm --name pipecontainer")
+            }
+	    }
+    } 
 	stage('Upload Docker Image to GCR'){
         steps{
             sh 'docker tag php:7.2-apache us.gcr.io/rising-minutia-309213/starworld'
             sh 'docker push us.gcr.io/rising-minutia-309213/starworld'
         }
     }
-		stage('Run Docker Container') {
-        steps{
-            script {
-                //sh 'docker image prune -f'
-                dockerImage.run("-p 8081:80")
-            }
-        }
-    }
-	
+		
       stage('Deploy to Kubernetes'){
         steps{
 	    sh 'gcloud container clusters get-credentials cluster-1 \
