@@ -30,8 +30,8 @@ pipeline {
     }
 	stage('Upload Docker Image to GCR'){
         steps{
-            sh 'docker tag vidhya3112/k8s-pipeline gcr.io/rising-minutia-309213/starworld'
-            sh 'docker push gcr.io/rising-minutia-309213/starworld'
+            sh 'docker tag vidhya3112/k8s-pipeline gcr.io/rising-minutia-309213/php:7.2-apache'
+            sh 'docker push gcr.io/rising-minutia-309213/php:7.2-apache'
         }
     }
         
