@@ -17,6 +17,7 @@ spec:
       containers:
       - name: demo-app
         image: starworld
+        imagePullPolicy:"Always"
         ports:
         - containerPort: 8081
 ---
