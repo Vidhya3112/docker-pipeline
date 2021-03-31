@@ -1,5 +1,7 @@
 FROM php:7.2-apache
 COPY index.html /var/www/html/
+RUN sed -i 's/80/8080/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+
 EXPOSE 80
 CMD ["/usr/sbin/apache2ctl","-D","FOREGROUND"]
 
