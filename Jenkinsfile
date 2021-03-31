@@ -5,26 +5,18 @@ pipeline {
 		registryCredentials = 'docker-hub'
 		dockerImage = ''
 	}
-	
-	
-    agent any
-	
+	agent any
 	stages
-	
 	{
-		
-	 
-        stage('Build image') {
+	stage('Build image') {
         /* This builds the actual image */
-            
-		steps{
+            steps{
 		    script{
         dockerImage = docker.build registry +":$BUILD_NUMBER"
             }
 	    }
     }
-
-        stage('Push image') {
+	stage('Push image') {
         /* 
 			You would need to first register with DockerHub before you can push images to your account*/
 		steps{
@@ -33,12 +25,21 @@ pipeline {
             dockerImage.push()
 	}
             } 
-                echo "Trying to Push Docker Build to DockerHub"
+                
+        }
+    }
+	stage('Upload Docker Image to GCR'){
+        steps{
+            sh 'docker tag vidhya3112/k8s-pipeline gcr.io/rising-minutia-309213/starworld'
+            sh 'docker push gcr.io/rising-minutia-309213/starworld'
         }
     }
         
       stage('Deploy to Kubernetes'){
         steps{
+	    sh 'gcloud container clusters get-credentials cluster-1 \
+                --zone us-central1-c \
+                --project rising-minutia-309213'
             sh 'kubectl apply -f deployment.yml'
        }
     }
