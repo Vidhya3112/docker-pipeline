@@ -38,7 +38,7 @@ pipeline {
         steps{
             script {
                 //sh 'docker image prune -f'
-                dockerImage.run("-p 8096:80 --rm --name pipecontainer")
+                dockerImage.run("-p 8096:5000 --rm --name pipecontainer")
             }
         }
     }
