@@ -29,15 +29,15 @@ pipeline {
         }
     }
 		
-	stage('Run container') {
-        /* This builds the actual image */
+	/*stage('Run container') {
+         This builds the actual image 
             
 		steps{
 		    script{
         dockerImage.run("-p 8096:80 --rm --name pipecontainer")
             }
 	    }
-    } 
+    } */
 	stage('Upload Docker Image to GCR'){
         steps{
             sh 'docker tag vidhya3112/k8s-pipeline us.gcr.io/rising-minutia-309213/starworld'
