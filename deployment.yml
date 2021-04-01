@@ -15,8 +15,8 @@ spec:
         app: demo-app
     spec:
       containers:
-      - name: starworld
-        image: us.gcr.io/rising-minutia-309213/starworld:latest
+      - image: gcr.io/rising-minutia-309213/starworld
+        name: starworld
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -33,13 +33,3 @@ spec:
       targetPort: 8080
       nodePort: 30008
   type: LoadBalancer
----
-apiVersion: policy/v1beta1
-kind: PodDisruptionBudget
-metadata:
-  name: demo-pdb
-spec:
-  minAvailable: 2
-  selector:
-    matchLabels:
-      app: demo-app
