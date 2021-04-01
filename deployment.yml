@@ -15,7 +15,7 @@ spec:
         app: demo-app
     spec:
       containers:
-      - image: gcr.io/rising-minutia-309213/starworld:latest
+      - image: gcr.io/rising-minutia-309213/starworld
         name: starworld
         imagePullPolicy: Always
         env:
