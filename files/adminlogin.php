@@ -3,7 +3,7 @@
         $username=$_POST['username'];
         $password=$_POST['password'];
 
-$servername = "35.225.117.188";
+$servername = "127.0.0.1";
     $dbuser = "root";
     $dbpassword = "root1234";
     $dbname = "certificationregdb";
