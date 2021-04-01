@@ -185,15 +185,15 @@ $(document).ready(function(){
                 <tbody>
                     <?php
                       
-			session_start();   
+			   
                         $dbserver = "127.0.0.1";
                         $dbuser = "root";
                         $dbpassword = "root1234";
                         $database = "certificationregdb";
 
-			$empname = $_SESSION[ 'sname' ];
-                        $conn = new mysqli($dbserver, $dbuser, $dbpassword,$database);
-                        $result = mysqli_query($conn,"SELECT empname,empid,CSP,cert_name,cert_level,link  FROM register where empname= '$empname' ");
+			
+                        $conn = mysqli_connect($dbserver, $dbuser, $dbpassword,$database);
+                        $result = mysqli_query($conn,"SELECT empname,empid,CSP,cert_name,cert_level,link  FROM register where empname= 'Vidhya' ");
 
                          while($row = mysqli_fetch_array($result))
                         {
