@@ -215,7 +215,7 @@ function myFunction() {
                         $dbpassword = "root1234";
                         $database = "certificationregdb";
                         $conn = mysqli_connect($dbserver, $dbuser, $dbpassword,$database);
-                        $result = mysqli_query($conn,"SELECT empname,empid,CSP,cert_name,cert_level,link  FROM register ") or die(mysqli_error($conn));
+                        $result = mysqli_query($conn,"SELECT empname,empid,CSP,cert_name,cert_level  FROM register ") or die(mysqli_error($conn));
 			
                         while($row = mysqli_fetch_array($result))
                         {
@@ -225,7 +225,7 @@ function myFunction() {
                         echo "<td>" . $row['CSP'] . "</td>";
                         echo "<td>" . $row['cert_name'] . "</td>";
                         echo "<td>" . $row['cert_level'] . "</td>";
-			echo "<td><a href=" . $row['link'] . ">" . $row['link'] . "</a></td>";			                         
+						                         
                         echo "</tr>";
                         }
                         ?>
