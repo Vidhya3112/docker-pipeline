@@ -193,7 +193,7 @@ $(document).ready(function(){
 
 			
                         $conn = mysqli_connect($dbserver, $dbuser, $dbpassword,$database);
-                        $result = mysqli_query($conn,"SELECT empname,empid,CSP,cert_name,cert_level,link  FROM register where empname= 'Vidhya' ") or die(mysqli_error($conn));
+                        $result = mysqli_query($conn,"SELECT empname,empid,CSP,cert_name,cert_level FROM register where empname= 'Vidhya' ") or die(mysqli_error($conn));
 
                          while($row = mysqli_fetch_array($result))
                         {
