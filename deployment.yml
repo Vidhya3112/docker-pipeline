@@ -14,7 +14,6 @@ spec:
       labels:
         app: demo-app
     spec:
-      serviceAccountName: k8-pipeline
       containers:
       - image: gcr.io/rising-minutia-309213/starworld
         name: starworld
