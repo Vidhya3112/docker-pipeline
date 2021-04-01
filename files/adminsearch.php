@@ -214,7 +214,7 @@ function myFunction() {
                         $dbuser = "root";
                         $dbpassword = "root1234";
                         $database = "certificationregdb";
-                        $conn = new mysqli($dbserver, $dbuser, $dbpassword,$database);
+                        $conn = mysqli_connect($dbserver, $dbuser, $dbpassword,$database);
                         $result = mysqli_query($conn,"SELECT empname,empid,CSP,cert_name,cert_level,link  FROM register ");
 
                          while($row = mysqli_fetch_array($result))
