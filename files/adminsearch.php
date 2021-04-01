@@ -216,8 +216,10 @@ function myFunction() {
                         $database = "certificationregdb";
                         $conn = mysqli_connect($dbserver, $dbuser, $dbpassword,$database);
                         $result = mysqli_query($conn,"SELECT empname,empid,CSP,cert_name,cert_level,link  FROM register ");
-
-                         while($row = mysqli_fetch_array($result))
+			or
+			die(mysqli_error($conn));
+			
+                        while($row = mysqli_fetch_array($result))
                         {
 				echo "<tr>";
                         echo "<td>" . $row['empname'] . "</td>";
