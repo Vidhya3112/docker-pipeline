@@ -15,7 +15,7 @@ $validity = $_POST['t8'];
 
 $smail = $_SESSION[ 'emailid' ];
 
-    $servername = "34.123.143.241";
+    $servername = "35.225.117.188";
     $dbuser = "root";
     $dbpassword = "root1234";
     $dbname = "certificationregdb";
