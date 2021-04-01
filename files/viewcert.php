@@ -186,7 +186,7 @@ $(document).ready(function(){
                     <?php
                       
 			session_start();   
-                        $dbserver = "35.225.117.188";
+                        $dbserver = "127.0.0.1";
                         $dbuser = "root";
                         $dbpassword = "root1234";
                         $database = "certificationregdb";
