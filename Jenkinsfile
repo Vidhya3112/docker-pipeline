@@ -4,6 +4,10 @@ pipeline {
 		registry = "vidhya3112/k8s-pipeline"
 		registryCredentials = 'docker-hub'
 		dockerImage = ''
+		 PROJECT_ID = 'rising-minutia-309213'
+        	CLUSTER_NAME = 'cluster-1'
+        	LOCATION = 'us-central1-c'
+        	CREDENTIALS_ID = 'My First Project'
 	}
 	agent any
 	stages
@@ -47,10 +51,9 @@ pipeline {
 		
       stage('Deploy to Kubernetes'){
         steps{
-	    sh 'gcloud container clusters get-credentials cluster-1 \
-                --zone us-central1-c \
-                --project rising-minutia-309213'
-            sh 'kubectl apply -f deployment.yml'
+	    sh "sed -i 's/starworld:latest/starworld:${env.BUILD_ID}/g' deployment.yml"
+                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+
        }
     }
 
